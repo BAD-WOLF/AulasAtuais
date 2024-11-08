@@ -55,6 +55,6 @@ internal class Program {
 
         Order order = new Order(client, OrderStatus.PENDING_PAYMENT, orderItems);
 
-        Console.WriteLine(order.ToJson());
+        Console.WriteLine(order.ToString());
     }
 }
