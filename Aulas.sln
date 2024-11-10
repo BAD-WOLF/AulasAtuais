@@ -9,7 +9,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Chat", "Chat\Chat.csproj", 
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PlannedInventory", "PlannedInventory\PlannedInventory.csproj", "{23C202C2-809E-4934-BDD5-9B5D4BCC04A2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Enterprise", "Enterprise\Enterprise.csproj", "{821A8C41-0D92-4A0F-AECF-4C412109E127}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Enterprise", "Enterprise\Enterprise.csproj", "{821A8C41-0D92-4A0F-AECF-4C412109E127}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

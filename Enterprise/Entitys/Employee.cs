@@ -1,5 +1,6 @@
 ﻿namespace Enterprise.Entitys {
     using System;
+    using static Environment;
 
     internal class Employee(String name, Int32 hour, Single valuePerHour)
     {
@@ -13,6 +14,11 @@
 
         public virtual Single Payment() {
             return this.ValuePerHour * this.Hour;
+        }
+
+        public sealed override string ToString()
+        {
+            return $"Name: {this.Name + NewLine}Value Per Hour: {this.ValuePerHour + NewLine}Hour: {this.Hour + NewLine}Payment: {this.Payment() + NewLine}";
         }
     }
 }

@@ -5,7 +5,8 @@
 
         public override Single Payment() {
             Single value = base.Payment();
-            return (this.AdditionalCharge * (110 / 100)) + value;
+            return (this.AdditionalCharge * (110f / 100)) + value;
+            // (200 * (110 / 100)) + (30 * 3) = 310
         }
     }
 }
