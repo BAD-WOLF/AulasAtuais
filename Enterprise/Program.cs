@@ -28,7 +28,7 @@ internal sealed class Program {
 
             Int32 hour = ParseReadLineWithSuccess<Int32>("Hour >> ");
 
-            Console.Write("U is a sourced employee? [Y/n]: ");
+            Console.Write("U is a Insourced employee? [Y/n]: ");
             char yesOrNo = char.ToUpper(Console.ReadKey().KeyChar);
             Console.WriteLine(); // only jump line
             if( yesOrNo.Equals('Y') ) {
@@ -47,12 +47,12 @@ internal sealed class Program {
     }
 
     private static T ParseReadLineWithSuccess<T>(String txt) where T : struct {
+        // ReSharper disable once TooWideLocalVariableScope
         T result;
         do {
             InitConvertType:
             Console.Write(txt);
-            try
-            {
+            try {
                 result = ( T ) Convert.ChangeType(Console.ReadLine()!, typeof(T));
             } catch {
                 Console.ForegroundColor = ConsoleColor.DarkRed;
