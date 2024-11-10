@@ -1,9 +1,7 @@
 ﻿namespace Enterprise.Entitys {
 
     internal sealed class OutsourcedEmployee(String name, Int32 hour, Single valuePerHour, Single additionalCharge) : Employee(name, hour, valuePerHour) {
-        private Single _additionalCharge = additionalCharge;
-
-        public Single AdditionalCharge { get => this._additionalCharge; set => this._additionalCharge = value; }
+        public Single AdditionalCharge { get; set; } = additionalCharge;
 
         public override Single Payment() {
             Single value = base.Payment();
