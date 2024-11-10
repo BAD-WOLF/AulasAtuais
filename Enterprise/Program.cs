@@ -57,6 +57,7 @@ internal sealed class Program {
             } catch {
                 Console.ForegroundColor = ConsoleColor.DarkRed;
                 Console.WriteLine("Error: Content Format Is Not Valid, Try Again!");
+                Console.ResetColor();
                 goto InitConvertType;
             }
 
