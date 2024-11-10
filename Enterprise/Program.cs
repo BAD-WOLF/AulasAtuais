@@ -49,27 +49,19 @@ internal sealed class Program {
     private static T ParseReadLineWithSuccess<T>(String txt) where T : struct {
         T result;
         do {
+            InitConvertType:
             Console.Write(txt);
-        } while( !TryParse(Console.ReadLine(), out result) );
-        return result;
-    }
+            try
+            {
+                result = ( T ) Convert.ChangeType(Console.ReadLine()!, typeof(T));
+            } catch {
+                Console.ForegroundColor = ConsoleColor.DarkRed;
+                Console.WriteLine("Error: Content Format Is Not Valid, Try Again!");
+                goto InitConvertType;
+            }
 
-    private static bool TryParse<T>(string input, out T result) where T : struct {
-        result = default;
-
-        var tryParseMethod = typeof(T).GetMethod("TryParse", new[] { typeof(string), typeof(T).MakeByRefType() });
-
-        if( tryParseMethod != null ) {
-            var parameters = new object[] { input, null };
-            bool success = (bool)tryParseMethod.Invoke(null, parameters);
-
-            if( success )
-                result = ( T ) parameters[1];
-
-            return success;
-        }
-
-        return false;
+            return result;
+        } while( true );
     }
 
 }
