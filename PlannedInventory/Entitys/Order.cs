@@ -43,7 +43,7 @@
             sb.AppendLine("ORDER SUMMARY:");
             sb.AppendLine($"Order moment: {this._moment:dd/MM/yyyy HH:mm:ss}");
             sb.AppendLine($"Order status: {this._orderStatus}");
-            sb.AppendLine($"Client: {this._client.Name} ({this._client.BirthDate:dd/MM/yyyy}) - {_client.Email}");
+            sb.AppendLine($"Client: {this._client.Name} ({this._client.BirthDate:dd/MM/yyyy}) - {this._client.Email}");
 
             // Itens do pedido
             sb.AppendLine("Order items:");

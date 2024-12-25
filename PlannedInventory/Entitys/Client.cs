@@ -10,8 +10,11 @@
         private String _email;
         private DateOnly _birthDate;
 
+        #pragma warning disable CS8618
+        // O campo não anulável precisa conter um valor não nulo ao sair do construtor. Considere adicionar o modificador "obrigatório" ou declarar como anulável.
         public Client() {
         }
+        #pragma warning restore CS8618 
 
         public Client(String name, String email, DateOnly birthDate) {
             this._name = name;
