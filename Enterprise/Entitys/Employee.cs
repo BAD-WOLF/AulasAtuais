@@ -16,7 +16,7 @@
             return this.ValuePerHour * this.Hour;
         }
 
-        public sealed override string ToString()
+        public sealed override String ToString()
         {
             return $"Name: {this.Name + NewLine}Value Per Hour: {this.ValuePerHour + NewLine}Hour: {this.Hour + NewLine}Payment: {this.Payment() + NewLine}";
         }

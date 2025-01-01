@@ -36,7 +36,7 @@
             return total;
         }
 
-        public override string ToString() {
+        public override String ToString() {
             StringBuilder sb = new StringBuilder();
 
             // Dados principais do pedido
@@ -52,7 +52,7 @@
             }
 
             // Preço total
-            sb.AppendLine($"Total price: ${Total():F2}");
+            sb.AppendLine($"Total price: ${this.Total():F2}");
 
             return sb.ToString();
         }

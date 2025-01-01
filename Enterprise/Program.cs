@@ -8,7 +8,7 @@ using static System.Single;
 namespace Enterprise;
 
 internal sealed class Program {
-    private static void Main(string[] args) {
+    private static void Main(String[] args) {
 
         String name;
         // ReSharper disable once SuggestVarOrType_Elsewhere
@@ -16,7 +16,7 @@ internal sealed class Program {
         Int32 employeeQuantity = ParseReadLineWithSuccess<Int32>("Quantity Of Employees >> ");
 
 
-        for( int i = 0; i < employeeQuantity; i++ ) {
+        for( Int32 i = 0; i < employeeQuantity; i++ ) {
 
             Console.WriteLine($"employee #{i + 1}");
 
@@ -29,7 +29,7 @@ internal sealed class Program {
             Int32 hour = ParseReadLineWithSuccess<Int32>("Hour >> ");
 
             Console.Write("U is a Insourced employee? [Y/n]: ");
-            char yesOrNo = char.ToUpper(Console.ReadKey().KeyChar);
+            Char yesOrNo = Char.ToUpper(Console.ReadKey().KeyChar);
             Console.WriteLine(); // only jump line
             if( yesOrNo.Equals('Y') ) {
                 employees.Add(new Employee(name, hour, valuePerHour));

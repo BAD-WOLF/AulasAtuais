@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 
 using BuyProducts.Entity;
@@ -21,15 +22,18 @@ internal static class Program {
     private static String[] _choiceStates = [];
     internal static dynamic ChoiceState {
         get => Program._choiceStates;
+        [RequiresUnreferencedCode("Calls ArrayBuilder.Add<T>(ref T[], T)")]
         set => ArrayBuilder.Add(ref Program._choiceStates, value);
     }
 
     private static Product[] _products = [];
     internal static dynamic Products {
         get => Program._products;
+        [RequiresUnreferencedCode("Calls ArrayBuilder.Add<T>(ref T[], T)")]
         set => ArrayBuilder.Add(ref Program._products, value);
     }
 
+    [RequiresUnreferencedCode("Calls Program.ChoiceState")]
     private static void Main(String[] args) {
         // Variaveis base para telas dentro do for
         Console.Write("Quantos Produdos Vão Ser? >> ");
@@ -62,7 +66,7 @@ internal static class Program {
                 case var CPT when CPT["Product"].Contains(choiceProductType):
                 Program.ChoiceState = "[ 1 - P ]";
                 Console.WriteLine("Processando Pedido [ 1 - P ] Produto Local ....");
-                Program.Products = new Product(Program.Name, Program.Price);
+                Program.Products = new Product(name: Program.Name!, price: Program.Price);
                 break;
 
                 case var CPT when CPT["ImportedProduct"].Contains(choiceProductType):
