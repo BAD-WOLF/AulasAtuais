@@ -10,12 +10,12 @@
             this.Radius = radius;
         }
 
-        internal override Double Area() {
-            this.AreaValue = Double.Pi * Math.Pow(this.Radius, 2);
+        internal override Double  Area() {
+            this.AreaValue = Math.PI * Math.Pow(this.Radius, 2);
             return this.AreaValue;
         }
 
         public override String ToString() =>
-            $"This Shape Is A Circle With {this.Radius} Radius\nArea: {this.AreaValue}\nColor: {this.Color}";
+            $"This Shape Is A Circle With {this.Radius} Radius\nArea: {this.Area()}\nColor: {this.Color}";
     }
 }

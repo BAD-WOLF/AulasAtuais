@@ -20,6 +20,6 @@
         }
 
         public override String ToString() => 
-            $"This Shape Is A Rectangle With {this.Width} Width And {this.Height} Height\nArea: {this.AreaValue}\nColor: {this.Color}";
+            $"This Shape Is A Rectangle With {this.Width} Width And {this.Height} Height\nArea: {this.Area()}\nColor: {this.Color}";
     }
 }

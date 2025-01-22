@@ -1,0 +1,24 @@
+classDiagram
+    class Pessoa {
+        <<abstract>>
+        - _nome : string
+        - _rendaAnual : double
+        ~ Nome : string -> get; set; 
+        ~ RendaAnual : double -> get; set; 
+        ~ A calcularImposto() double
+    }
+
+    class PessoaFisica {
+        - _gastosSaude : double
+        ~ GastosSaude : double -> get; set; 
+        + Ov calcularImposto() double
+    }
+
+    class PessoaJuridica {
+        - _numeroFuncionarios : int
+        ~ NumeroFuncionarios : int -> get; set; 
+        + Ov calcularImposto() double
+    }
+
+    Pessoa <|-- PessoaFisica
+    Pessoa <|-- PessoaJuridica
