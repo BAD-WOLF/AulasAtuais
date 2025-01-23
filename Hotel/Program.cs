@@ -53,7 +53,7 @@ internal class Program {
 
         do {
             Console.Write("Checkout >> ");
-        } while( !DateTime.TryParseExact(Console.ReadLine(), "dd/MM/yyyy", null, default, out checkout) );
+        } while( !DateTime.TryParseExact(Console.ReadLine(), "dd/MM/yyyy", null, default, out checkout) && checkout > checkin );
         if( saveInList ) {
             Program._resevationList.Add(new Reservation(roomNumber, checkout, checkout));
         }
