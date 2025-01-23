@@ -49,7 +49,7 @@ internal class Program {
 
         do {
             Console.Write("Checkin >> ");
-        } while( !DateTime.TryParseExact(Console.ReadLine(), "dd/MM/yyyy", null, default, out checkin) );
+        } while( !DateTime.TryParseExact(Console.ReadLine(), "dd/MM/yyyy", null, default, out checkin) && checkin >= DateTime.Now);
 
         do {
             Console.Write("Checkout >> ");
