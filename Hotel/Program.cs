@@ -67,7 +67,7 @@ internal class Program {
             Console.Write("Numero Representativo De Reservation >> ");
         } while( !Int32.TryParse(Console.ReadLine()!, null, out reservationIndex) );
 
-        Program._resevationList[reservationIndex - 1] = new Reservation(Program.GetDatasInConsole(false));
+        Program._resevationList[reservationIndex - 1].UpdateDates(Program.GetDatasInConsole(false));
 
     }
 }

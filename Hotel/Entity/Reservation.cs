@@ -17,7 +17,7 @@
             this.Checkout = checkout;
         }
 
-        internal Reservation((UInt32 roomNumber, DateTime checkin, DateTime checkout) data) {
+        internal void UpdateDates((UInt32 roomNumber, DateTime checkin, DateTime checkout) data) {
             this.RoomNumber = data.roomNumber;
             this.Checkin = data.checkin;
             this.Checkout = data.checkout;
