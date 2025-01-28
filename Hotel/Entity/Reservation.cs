@@ -31,7 +31,7 @@
                 throw new DomainException("Error: O Numero De Rooms (Quartos) Deve Ser Maior Que 0");
             }
 
-            if( data.checkin < DateTime.Now ) {
+            if( data.checkin < DateTime.Now.Date ) {
                 throw new DomainException("Error: O Chechin Deve Ser Uma Data Presente Ou Futura");
             }
 
