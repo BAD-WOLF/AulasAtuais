@@ -8,6 +8,8 @@ internal class Program {
 
         Console.Write("Numero De Reservas A Serem Feitas >> ");
         Int32 N = Int32.Parse(Console.ReadLine()!);
+        Console.WriteLine();
+
         for( Int32 i = 0; i < N; i++ ) {
             Program.GetDatasInConsole();
             Console.WriteLine();
@@ -18,8 +20,9 @@ internal class Program {
         // Usuario Quer Editar Algum Dado?
         char y_n;
         while( true ) {
-            Console.Write("Deseja alterar alguma? [Y/n]: ");
+            Console.Write("\nDeseja alterar alguma? [Y/n]: ");
             y_n = Char.ToUpper(Console.ReadKey().KeyChar);
+            Console.WriteLine();
             if( y_n.Equals('N') ) {
                 Console.WriteLine("\nOk, Finalizado Então!!");
                 return;
@@ -49,13 +52,13 @@ internal class Program {
 
         do {
             Console.Write("Checkin >> ");
-        } while( !DateTime.TryParseExact(Console.ReadLine(), "dd/MM/yyyy", null, default, out checkin) && checkin >= DateTime.Now);
+        } while( !DateTime.TryParseExact(Console.ReadLine(), "dd/MM/yyyy", null, default, out checkin) );
 
         do {
             Console.Write("Checkout >> ");
-        } while( !DateTime.TryParseExact(Console.ReadLine(), "dd/MM/yyyy", null, default, out checkout) && checkout > checkin );
+        } while( !DateTime.TryParseExact(Console.ReadLine(), "dd/MM/yyyy", null, default, out checkout) );
         if( saveInList ) {
-            Program._resevationList.Add(new Reservation(roomNumber, checkout, checkout));
+            Program._resevationList.Add(new Reservation(roomNumber, checkin, checkout));
         }
         return (roomNumber, checkin, checkout);
     }
@@ -66,6 +69,7 @@ internal class Program {
         do {
             Console.Write("Numero Representativo De Reservation >> ");
         } while( !Int32.TryParse(Console.ReadLine()!, null, out reservationIndex) );
+        Console.WriteLine();
 
         Program._resevationList[reservationIndex - 1].UpdateDates(Program.GetDatasInConsole(false));
 

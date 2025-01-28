@@ -1,26 +1,48 @@
 ﻿namespace Hotel.Entity {
     using System;
-    using System.Collections.Generic;
-    using System.Linq;
-    using System.Security.Cryptography.X509Certificates;
-    using System.Text;
-    using System.Threading.Tasks;
+    using Hotel.Entity.Exceptions;
 
     internal class Reservation {
+
+
         private UInt32    _roomNumber;
         private DateTime _checkin = DateTime.Now;
         private DateTime _checkout = DateTime.MaxValue;
 
         internal Reservation(UInt32 roomNumber, DateTime checkin, DateTime checkout) {
+            if( roomNumber <= 0 ) {
+                throw new DomainException("Error: O Numero De Rooms (Quartos) Deve Ser Maior Que 0");
+            }
+
+            if( checkin < DateTime.Now.Date ) {
+                throw new DomainException($"Error: O Chechin Deve Ser Uma Data Presente Ou Futura, hoje é {DateTime.Now}");
+            }
+
+            if( checkout <= checkin ) {
+                throw new DomainException("Error: O Checkout Deve Ser Uma Data Futura");
+            }
             this.RoomNumber = roomNumber;
             this.Checkin = checkin;
             this.Checkout = checkout;
         }
 
         internal void UpdateDates((UInt32 roomNumber, DateTime checkin, DateTime checkout) data) {
+            if( data.roomNumber <= 0 ) {
+                throw new DomainException("Error: O Numero De Rooms (Quartos) Deve Ser Maior Que 0");
+            }
+
+            if( data.checkin < DateTime.Now ) {
+                throw new DomainException("Error: O Chechin Deve Ser Uma Data Presente Ou Futura");
+            }
+
+            if( data.checkout <= data.checkin) {
+                throw new DomainException("Error: O Checkout Deve Ser Uma Data Mior Que A De Checkin");
+            }
+
             this.RoomNumber = data.roomNumber;
             this.Checkin = data.checkin;
             this.Checkout = data.checkout;
+
         }
 
         internal UInt32 RoomNumber {
@@ -55,7 +77,6 @@
 
         internal Int32 Duration() {
             return this.Checkout.Subtract(this.Checkin).Days;
-            ;
         }
 
         public override String ToString() {
