@@ -1,36 +1,39 @@
 ﻿using Hotel.Entity;
+using Hotel.Entity.Exceptions;
 
 internal class Program {
 
     private static List<Reservation> _resevationList = [];
 
     private static void Main(string[] args) {
-
-        Console.Write("Numero De Reservas A Serem Feitas >> ");
-        Int32 N = Int32.Parse(Console.ReadLine()!);
-        Console.WriteLine();
-
-        for( Int32 i = 0; i < N; i++ ) {
-            Program.GetDatasInConsole();
+        try {
+            Console.Write("Numero De Reservas A Serem Feitas >> ");
+            Int32 N = Int32.Parse(Console.ReadLine()!);
             Console.WriteLine();
-        }
 
-        Program.ShowDataList();
-
-        // Usuario Quer Editar Algum Dado?
-        char y_n;
-        while( true ) {
-            Console.Write("\nDeseja alterar alguma? [Y/n]: ");
-            y_n = Char.ToUpper(Console.ReadKey().KeyChar);
-            Console.WriteLine();
-            if( y_n.Equals('N') ) {
-                Console.WriteLine("\nOk, Finalizado Então!!");
-                return;
+            for( Int32 i = 0; i < N; i++ ) {
+                Program.GetDatasInConsole();
+                Console.WriteLine();
             }
-            Program.EditReservationList();
-            Program.ShowDataList();
-        }
 
+            Program.ShowDataList();
+
+            // Usuario Quer Editar Algum Dado?
+            char y_n;
+            while( true ) {
+                Console.Write("\nDeseja alterar alguma? [Y/n]: ");
+                y_n = Char.ToUpper(Console.ReadKey().KeyChar);
+                Console.WriteLine();
+                if( y_n.Equals('N') ) {
+                    Console.WriteLine("\nOk, Finalizado Então!!");
+                    return;
+                }
+                Program.EditReservationList();
+                Program.ShowDataList();
+            }
+        } catch( DomainException e ) {
+            Console.WriteLine($"Error: {e.Message}");
+        }
     }
 
     private static void ShowDataList() {
