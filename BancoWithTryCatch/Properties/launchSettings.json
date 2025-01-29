@@ -1,0 +1,10 @@
+{
+  "profiles": {
+    "BancoWithTryCatch": {
+      "commandName": "Project"
+    },
+    "Container (Dockerfile)": {
+      "commandName": "Docker"
+    }
+  }
+}

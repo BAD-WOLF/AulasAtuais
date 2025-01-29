@@ -1,11 +1,10 @@
-﻿internal enum Color {
-    BLACK
-}
+﻿using System.Text.Json;
+
+using Test.Entity;
 
 internal class Program {
-    private static void Main(string[] args) {
-        if( Color.BLACK == 0 )
-            Console.WriteLine((true? "true": "flase"));
-
+    static void Main() {
+        var obj = new MinhaClasse(1, "Teste");
+        Console.WriteLine(obj);
     }
 }
