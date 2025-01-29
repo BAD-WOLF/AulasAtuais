@@ -5,17 +5,21 @@
     using BancoWithTryCatch.Entity.Exception;
 
     internal class People {
-        public UInt32 _id;
-        public String _name;
-        public UInt32 _age;
 
-        public People(UInt32 id, String name, UInt32 age) {
+        [JsonInclude]
+        private UInt32 _id;
+        [JsonInclude]
+        private String _name;
+        [JsonInclude]
+        private UInt32 _age;
+
+        internal People(UInt32 id, String name, UInt32 age) {
             this.Id = id;
             this.Name = name;
             this.Age = age;
         }
 
-        public UInt32 Id {
+        internal UInt32 Id {
             get {
                 return this._id;
             }
@@ -25,7 +29,7 @@
             }
         }
 
-        public String Name {
+        internal String Name {
             get {
                 return this._name;
             }
@@ -35,7 +39,7 @@
             }
         }
 
-        public UInt32 Age {
+        internal UInt32 Age {
             get {
                 return this._age;
             }

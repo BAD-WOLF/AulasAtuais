@@ -2,19 +2,25 @@
     using System;
     using System.Collections.Generic;
     using System.Text.Json;
+    using System.Text.Json.Serialization;
 
     using BancoWithTryCatch.Entity.Exception;
 
     internal class Accont {
+
+        [JsonInclude]
         private UInt32 _id;
+        [JsonInclude]
         private Double _balance;
+        [JsonInclude]
         private Double _withdrowLimit;
+        [JsonInclude]
         private People _pessoa;
 
-        internal Accont(UInt32 id, Double balance, Double withdrowLimit, People pessoa) {
+        internal Accont(UInt32 id, Double balance, Double withdrawLimit, People pessoa) {
             this.ID = id;
             this.Balance = balance;
-            this.WithdrowLimit = withdrowLimit;
+            this.WithdrawLimit = withdrawLimit;
             this.Pessoa = pessoa;
         }
 
@@ -34,17 +40,17 @@
                 return this._balance;
             }
 
-            set {
+            private set {
                 this._balance = value;
             }
         }
 
-        internal Double WithdrowLimit {
+        internal Double WithdrawLimit {
             get {
                 return this._withdrowLimit;
             }
 
-            set {
+            private set {
                 this._withdrowLimit = value;
             }
         }
@@ -63,13 +69,13 @@
             this.Balance = amaunt;
         }
 
-        internal void Withdrow(Double amaunt) {
+        internal void Withdraw(Double amaunt) {
             if( this.Balance < 0.1 ) {
                 throw new DomainException("Balance Is Low That 0.1");
             }
 
-            if( this.WithdrowLimit < amaunt ) {
-                throw new DomainException("Withdrow Limit Is Low That amaunt");
+            if( this.WithdrawLimit < amaunt ) {
+                throw new DomainException("Withdraw Limit Is Low That amaunt");
             }
 
             this.Balance -= amaunt;

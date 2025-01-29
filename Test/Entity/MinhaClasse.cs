@@ -4,19 +4,22 @@
     using System.Linq;
     using System.Text;
     using System.Text.Json;
+    using System.Text.Json.Serialization;
     using System.Threading.Tasks;
 
     internal class MinhaClasse {
 
+        [JsonInclude]
         private int _id;
+        [JsonInclude]
         private string _nome;
 
-        public MinhaClasse(Int32 id, String nome) {
+        internal MinhaClasse(Int32 id, String nome) {
             this.Id = id;
             this.Nome = nome;
         }
 
-        public Int32 Id {
+        internal Int32 Id {
             get {
                 return this._id;
             }
@@ -26,7 +29,7 @@
             }
         }
 
-        public String Nome {
+        internal String Nome {
             get {
                 return this._nome;
             }
